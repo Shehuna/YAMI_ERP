@@ -88,42 +88,6 @@ const Sidebar = () => {
         })}
       </nav>
 
-      {/* Bottom section with version info */}
-      <div style={{
-        borderTop: '1px solid #eef2f8',
-        paddingTop: '16px',
-        marginTop: 'auto'
-      }}>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-          padding: '8px 12px',
-          borderRadius: '6px',
-          background: '#f5f7fb'
-        }}>
-          <div style={{
-            width: '6px',
-            height: '6px',
-            borderRadius: '50%',
-            background: '#4caf50'
-          }} />
-          <span style={{ 
-            color: '#4f6580', 
-            fontSize: '0.65rem',
-            fontWeight: '500'
-          }}>
-            Connected
-          </span>
-          <span style={{ 
-            color: '#8a9bb5', 
-            fontSize: '0.6rem',
-            marginLeft: 'auto'
-          }}>
-            v2026.1
-          </span>
-        </div>
-      </div>
     </div>
   );
 };
