@@ -491,6 +491,51 @@ const BusinessStatus = () => {
                   }}
                 />
               </div>
+              {/* Buttons */}
+              <div style={{
+                display: 'flex',
+                gap: '10px',
+                marginTop: '4px',
+                width: '100%',
+                maxWidth: '280px'
+              }}>
+                <button
+                  style={{
+                    background: '#2c6bff',
+                    border: 'none',
+                    padding: '6px 24px',
+                    borderRadius: '6px',
+                    color: 'white',
+                    fontSize: '0.75rem',
+                    fontWeight: '500',
+                    cursor: 'pointer',
+                    transition: 'all 0.15s'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.background = '#1a5adf'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = '#2c6bff'}
+                  onClick={() => console.log('Display clicked')}
+                >
+                  Display
+                </button>
+                <button
+                  style={{
+                    background: '#f8faff',
+                    border: '1px solid #dce3ef',
+                    padding: '6px 24px',
+                    borderRadius: '6px',
+                    color: '#3d4e66',
+                    fontSize: '0.75rem',
+                    fontWeight: '500',
+                    cursor: 'pointer',
+                    transition: 'all 0.15s'
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.background = '#eef2f8'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = '#f8faff'}
+                  onClick={() => console.log('Print clicked')}
+                >
+                  Print
+                </button>
+              </div>
             </div>
           </div>
         </div>
