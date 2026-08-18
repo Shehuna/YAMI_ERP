@@ -77,7 +77,7 @@ const NavBar = () => {
         >
           <div
             style={{
-              color: '#b0c8e0',
+             // color: '#b0c8e0',
               fontSize: '0.75rem',
               fontWeight: '500',
               padding: '4px 12px',

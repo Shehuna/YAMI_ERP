@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { FaBell, FaChevronDown, FaSync, FaPrint, FaCalendarAlt } from 'react-icons/fa';
+import { FaBell, FaSync, FaPrint, FaCalendarAlt } from 'react-icons/fa';
 
 const Topbar = () => {
   const location = useLocation();
