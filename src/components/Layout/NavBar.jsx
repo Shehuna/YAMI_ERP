@@ -97,15 +97,7 @@ const NavBar = () => {
       position: 'relative',
       zIndex: 1000
     }}>
-      <span style={{
-        color: '#7aa9ff',
-        fontWeight: '600',
-        fontSize: '0.8rem',
-        marginRight: '24px',
-        letterSpacing: '0.5px'
-      }}>
-        SAGE 50
-      </span>
+
 
       {navItems.map((item, index) => (
         <div
@@ -282,35 +274,6 @@ const NavBar = () => {
         </div>
       ))}
 
-      <div style={{ marginLeft: 'auto', display: 'flex', gap: '6px' }}>
-        <span style={{
-          color: '#8a9bb5',
-          fontSize: '0.7rem',
-          padding: '2px 10px',
-          borderRadius: '3px',
-          cursor: 'default'
-        }}>
-          —
-        </span>
-        <span style={{
-          color: '#8a9bb5',
-          fontSize: '0.7rem',
-          padding: '2px 10px',
-          borderRadius: '3px',
-          cursor: 'default'
-        }}>
-          □
-        </span>
-        <span style={{
-          color: '#8a9bb5',
-          fontSize: '0.7rem',
-          padding: '2px 10px',
-          borderRadius: '3px',
-          cursor: 'default'
-        }}>
-          ✕
-        </span>
-      </div>
     </div>
   );
 };
