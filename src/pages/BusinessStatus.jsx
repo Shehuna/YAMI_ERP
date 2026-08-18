@@ -1,9 +1,5 @@
 import React from 'react';
-import { 
-  FaSearch, FaEye, FaEdit, FaTrash, FaPlus, 
-  FaChevronRight, FaFileInvoice, FaUser, FaCalendar,
-  FaDollarSign, FaChartLine, FaBuilding, FaTruck
-} from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const BusinessStatus = () => {
   // Dummy data for Account Balances
@@ -292,10 +288,10 @@ const BusinessStatus = () => {
               fontSize: '0.7rem'
             }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                <a href="#" style={{ color: '#2c6bff', textDecoration: 'none' }}>View Account List</a>
-                <a href="#" style={{ color: '#2c6bff', textDecoration: 'none' }}>Reconcile Account</a>
+                <Link to="/accounts" style={{ color: '#2c6bff', textDecoration: 'none' }}>View Account List</Link>
+                <Link to="/accounts/reconcile" style={{ color: '#2c6bff', textDecoration: 'none' }}>Reconcile Account</Link>
               </div>
-              <a href="#" style={{ color: '#2c6bff', textDecoration: 'none' }}>View Balance Sheet →</a>
+              <Link to="/reports/balance-sheet" style={{ color: '#2c6bff', textDecoration: 'none' }}>View Balance Sheet →</Link>
             </div>
           </div>
 
@@ -358,7 +354,7 @@ const BusinessStatus = () => {
               padding: '8px 16px',
               borderTop: '1px solid #eef2f8'
             }}>
-              <a href="#" style={{ color: '#2c6bff', textDecoration: 'none', fontSize: '0.7rem' }}>Set up Customer →</a>
+              <Link to="/customers/setup" style={{ color: '#2c6bff', textDecoration: 'none', fontSize: '0.7rem' }}>Set up Customer →</Link>
             </div>
           </div>
 
@@ -418,7 +414,7 @@ const BusinessStatus = () => {
               padding: '8px 16px',
               borderTop: '1px solid #eef2f8'
             }}>
-              <a href="#" style={{ color: '#2c6bff', textDecoration: 'none', fontSize: '0.7rem' }}>View Aged Receivable Report →</a>
+              <Link to="/reports/aged-receivables" style={{ color: '#2c6bff', textDecoration: 'none', fontSize: '0.7rem' }}>View Aged Receivable Report →</Link>
             </div>
           </div>
 
@@ -530,10 +526,10 @@ const BusinessStatus = () => {
               fontSize: '0.7rem'
             }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                <a href="#" style={{ color: '#2c6bff', textDecoration: 'none' }}>View Income Statement</a>
-                <a href="#" style={{ color: '#2c6bff', textDecoration: 'none' }}>View Account Variance Report</a>
+                <Link to="/reports/income-statement" style={{ color: '#2c6bff', textDecoration: 'none' }}>View Income Statement</Link>
+                <Link to="/reports/variance" style={{ color: '#2c6bff', textDecoration: 'none' }}>View Account Variance Report</Link>
               </div>
-              <a href="#" style={{ color: '#2c6bff', textDecoration: 'none' }}>Edit a Budget →</a>
+              <Link to="/budget/edit" style={{ color: '#2c6bff', textDecoration: 'none' }}>Edit a Budget →</Link>
             </div>
           </div>
 
@@ -654,8 +650,8 @@ const BusinessStatus = () => {
               alignItems: 'center',
               fontSize: '0.7rem'
             }}>
-              <a href="#" style={{ color: '#2c6bff', textDecoration: 'none' }}>View Aged Payable Report →</a>
-              <a href="#" style={{ color: '#2c6bff', textDecoration: 'none' }}>Make a Payment →</a>
+              <Link to="/reports/aged-payables" style={{ color: '#2c6bff', textDecoration: 'none' }}>View Aged Payable Report →</Link>
+              <Link to="/payments/make" style={{ color: '#2c6bff', textDecoration: 'none' }}>Make a Payment →</Link>
             </div>
           </div>
         </div>

@@ -1,10 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   FaUsers, FaBriefcase, FaPercent, FaFileAlt, FaClock, 
   FaShoppingCart, FaFileInvoice, FaChartLine, FaMoneyBillWave,
   FaUniversity, FaEnvelope, FaUndo, FaChartPie, 
-  FaSearch, FaEdit, FaTrash, FaEye, FaPlus,
-  FaChevronRight
 } from 'react-icons/fa';
 
 const Customers = () => {
@@ -127,8 +126,6 @@ const Customers = () => {
 
   return (
     <div>
-     
-
       {/* Two Column Layout - Equal width */}
       <div style={{
         display: 'grid',
@@ -259,49 +256,7 @@ const Customers = () => {
                 }}>
                   Customers
                 </h3>
-               
               </div>
-              {/* <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  background: '#f5f7fb',
-                  padding: '4px 10px',
-                  borderRadius: '6px',
-                  border: '1px solid #e2e8f0'
-                }}>
-                  <FaSearch style={{ color: '#8a9bb5', fontSize: '0.7rem' }} />
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    style={{
-                      border: 'none',
-                      background: 'transparent',
-                      padding: '3px 6px',
-                      fontSize: '0.75rem',
-                      outline: 'none',
-                      width: '120px',
-                      fontFamily: 'Inter, sans-serif'
-                    }}
-                  />
-                </div>
-                <button style={{
-                  background: '#2c6bff',
-                  border: 'none',
-                  padding: '5px 12px',
-                  borderRadius: '6px',
-                  color: 'white',
-                  fontSize: '0.7rem',
-                  fontWeight: '500',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '4px'
-                }}>
-                  <FaPlus size={10} />
-                  Add
-                </button>
-              </div> */}
             </div>
 
             <div style={{ overflow: 'auto', maxHeight: '260px' }}>
@@ -364,19 +319,6 @@ const Customers = () => {
                     }}>
                       Status
                     </th>
-                   {/*  <th style={{
-                      textAlign: 'center',
-                      padding: '8px 16px',
-                      background: '#f8faff',
-                      color: '#3f556b',
-                      fontWeight: '600',
-                      fontSize: '0.65rem',
-                      letterSpacing: '0.5px',
-                      textTransform: 'uppercase',
-                      borderBottom: '1px solid #eef2f8'
-                    }}>
-                      Actions
-                    </th> */}
                   </tr>
                 </thead>
                 <tbody>
@@ -425,45 +367,6 @@ const Customers = () => {
                           {customer.status}
                         </span>
                       </td>
-                      {/* <td style={{
-                        padding: '8px 16px',
-                        borderBottom: '1px solid #eef2f8',
-                        textAlign: 'center'
-                      }}>
-                        <div style={{
-                          display: 'flex',
-                          justifyContent: 'center',
-                          gap: '4px'
-                        }}>
-                          <button style={{
-                            background: 'none',
-                            border: 'none',
-                            color: '#2c6bff',
-                            cursor: 'pointer',
-                            padding: '2px'
-                          }}>
-                            <FaEye size={12} />
-                          </button>
-                          <button style={{
-                            background: 'none',
-                            border: 'none',
-                            color: '#2c6bff',
-                            cursor: 'pointer',
-                            padding: '2px'
-                          }}>
-                            <FaEdit size={12} />
-                          </button>
-                          <button style={{
-                            background: 'none',
-                            border: 'none',
-                            color: '#dc3545',
-                            cursor: 'pointer',
-                            padding: '2px'
-                          }}>
-                            <FaTrash size={12} />
-                          </button>
-                        </div>
-                      </td> */}
                     </tr>
                   ))}
                 </tbody>
@@ -501,12 +404,13 @@ const Customers = () => {
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '8px',
+                      justifyContent: 'space-between',
                       padding: '6px 16px',
                       color: '#3d4e66',
                       fontSize: '0.75rem',
                       cursor: 'pointer',
-                      transition: 'all 0.15s'
+                      transition: 'all 0.15s',
+                      borderBottom: index < reports.length - 1 ? '1px solid #f0f2f6' : 'none'
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.background = '#f0f4ff';
@@ -516,10 +420,33 @@ const Customers = () => {
                     }}
                   >
                     <span style={{ flex: 1 }}>{report}</span>
-                    <FaChevronRight style={{ 
-                      fontSize: '0.5rem', 
-                      color: '#b0c0d4' 
-                    }} />
+                    <div style={{
+                      display: 'flex',
+                      gap: '8px',
+                      fontSize: '0.65rem'
+                    }}>
+                      <Link 
+                        to={`/reports/${report.toLowerCase().replace(/\s+/g, '-')}`}
+                        style={{
+                          color: '#2c6bff',
+                          textDecoration: 'none',
+                          fontWeight: '500'
+                        }}
+                      >
+                        View
+                      </Link>
+                      <span style={{ color: '#dce3ef' }}>|</span>
+                      <Link 
+                        to={`/reports/${report.toLowerCase().replace(/\s+/g, '-')}/print`}
+                        style={{
+                          color: '#2c6bff',
+                          textDecoration: 'none',
+                          fontWeight: '500'
+                        }}
+                      >
+                        Print
+                      </Link>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -528,13 +455,16 @@ const Customers = () => {
                 borderTop: '1px solid #eef2f8',
                 fontSize: '0.7rem'
               }}>
-                <a href="#" style={{
-                  color: '#2c6bff',
-                  textDecoration: 'none',
-                  fontWeight: '500'
-                }}>
+                <Link 
+                  to="/reports/customer"
+                  style={{
+                    color: '#2c6bff',
+                    textDecoration: 'none',
+                    fontWeight: '500'
+                  }}
+                >
                   View All Customer Reports →
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -654,16 +584,19 @@ const Customers = () => {
                   <span style={{ fontSize: '0.85rem', fontWeight: '700', color: '#1a2636' }}>$15,685</span>
                 </div>
 
-                <a href="#" style={{
-                  color: '#2c6bff',
-                  textDecoration: 'none',
-                  fontSize: '0.7rem',
-                  fontWeight: '500',
-                  display: 'block',
-                  textAlign: 'center'
-                }}>
+                <Link 
+                  to="/reports/aged-receivables"
+                  style={{
+                    color: '#2c6bff',
+                    textDecoration: 'none',
+                    fontSize: '0.7rem',
+                    fontWeight: '500',
+                    display: 'block',
+                    textAlign: 'center'
+                  }}
+                >
                   View Aged Receivables Report →
-                </a>
+                </Link>
               </div>
             </div>
           </div>
