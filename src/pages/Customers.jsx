@@ -25,9 +25,10 @@ const Customers = () => {
     'Customer Contact List',
   ];
 
-  // Card width - smaller and consistent for all cards
+  // Card width - consistent for all cards
   const CARD_WIDTH = '110px';
   const CARD_HEIGHT = '70px';
+  const CARD_GAP = '12px'; // Space between cards in a row
 
   // Card data with labels only (no values)
   const row1Cards = [
@@ -51,6 +52,7 @@ const Customers = () => {
     { icon: FaMoneyBillWave, label: 'Receive Money', color: '#1a7642', bg: '#e1f3e8' },
   ];
 
+  // Row 5: Bank Deposits - moved to the right end
   const row5Cards = [
     { icon: FaUniversity, label: 'Bank Deposits', color: '#4f6580', bg: '#e8edf5' },
   ];
@@ -101,7 +103,7 @@ const Customers = () => {
           <Icon size={12} />
         </div>
         <div style={{
-          fontSize: '0.62rem',
+          fontSize: '0.7rem',
           fontWeight: '500',
           color: '#1a2636',
           textAlign: 'center',
@@ -138,13 +140,13 @@ const Customers = () => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '6px'
+          gap: '14px'
         }}>
           {/* Row 1: Customers, Jobs, Sales Tax */}
           <div style={{
             display: 'flex',
             justifyContent: 'flex-start',
-            gap: '6px',
+            gap: CARD_GAP,
             width: '100%',
             maxWidth: '360px'
           }}>
@@ -159,15 +161,26 @@ const Customers = () => {
           <div style={{
             display: 'flex',
             justifyContent: 'flex-start',
-            gap: '6px',
+            gap: CARD_GAP,
             width: '100%',
-            maxWidth: '360px'
+            maxWidth: '360px',
+            position: 'relative'
           }}>
             {row2Cards.map((card, index) => (
               <React.Fragment key={index}>
                 {renderCard(card)}
               </React.Fragment>
             ))}
+            {/* Vertical line from Quotes & Proposals to Sales Orders */}
+            <div style={{
+              position: 'absolute',
+              left: '55px',
+              bottom: '-14px',
+              width: '2px',
+              height: '14px',
+              background: '#d0d8e4',
+              zIndex: 1
+            }} />
           </div>
 
           {/* Row 3: Sales Orders */}
@@ -175,36 +188,81 @@ const Customers = () => {
             display: 'flex',
             justifyContent: 'flex-start',
             width: '100%',
-            maxWidth: '360px'
+            maxWidth: '360px',
+            position: 'relative'
           }}>
             {row3Cards.map((card, index) => (
               <React.Fragment key={index}>
                 {renderCard(card)}
               </React.Fragment>
             ))}
+            {/* Vertical line from Sales Orders to Sales Invoices */}
+            <div style={{
+              position: 'absolute',
+              left: '55px',
+              bottom: '-14px',
+              width: '2px',
+              height: '14px',
+              background: '#d0d8e4',
+              zIndex: 1
+            }} />
           </div>
 
           {/* Row 4: Sales Invoices, Finance Charges, Receive Money */}
           <div style={{
             display: 'flex',
             justifyContent: 'flex-start',
-            gap: '6px',
+            gap: CARD_GAP,
             width: '100%',
-            maxWidth: '360px'
+            maxWidth: '360px',
+            position: 'relative'
           }}>
             {row4Cards.map((card, index) => (
               <React.Fragment key={index}>
                 {renderCard(card)}
               </React.Fragment>
             ))}
+            {/* Horizontal line from Sales Invoices to Finance Charges */}
+            <div style={{
+              position: 'absolute',
+              left: '110px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: '12px',
+              height: '2px',
+              background: '#d0d8e4',
+              zIndex: 1
+            }} />
+            {/* Horizontal line from Finance Charges to Receive Money */}
+            <div style={{
+              position: 'absolute',
+              left: '232px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: '12px',
+              height: '2px',
+              background: '#d0d8e4',
+              zIndex: 1
+            }} />
+            {/* Vertical line from Receive Money to Bank Deposits */}
+            <div style={{
+              position: 'absolute',
+              left: '288px',
+              bottom: '-14px',
+              width: '2px',
+              height: '14px',
+              background: '#d0d8e4',
+              zIndex: 1
+            }} />
           </div>
 
-          {/* Row 5: Bank Deposits */}
+          {/* Row 5: Bank Deposits - moved to the right end */}
           <div style={{
             display: 'flex',
-            justifyContent: 'flex-start',
+            justifyContent: 'flex-end',
             width: '100%',
-            maxWidth: '360px'
+            maxWidth: '360px',
+            position: 'relative'
           }}>
             {row5Cards.map((card, index) => (
               <React.Fragment key={index}>
@@ -217,7 +275,7 @@ const Customers = () => {
           <div style={{
             display: 'flex',
             justifyContent: 'flex-start',
-            gap: '6px',
+            gap: CARD_GAP,
             width: '100%',
             maxWidth: '360px'
           }}>

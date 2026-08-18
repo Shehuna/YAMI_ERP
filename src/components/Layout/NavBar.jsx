@@ -9,7 +9,7 @@ const NavBar = () => {
     'Analysis', 'Options', 'Reports & Forms', 'Service', 'Help'
   ];
 
-  // Maintain dropdown items from the image
+  // Maintain dropdown items
   const maintainItems = [
     'Customers/Prospects...',
     'Vendors...',
@@ -26,6 +26,38 @@ const NavBar = () => {
     'Default Information',
     'Sales Taxes...',
     'Users'
+  ];
+
+  // Tasks dropdown items from the image
+  const tasksItems = [
+    'Quotes/Sales Orders/Proposals',
+    'Sales/Invoicing...',
+    'Shipments',
+    'Receipts...',
+    'Finance Charge...',
+    'Select for Deposit..',
+    'Credit Memos...',
+    'Select for Purchase Orders...',
+    'Purchase Orders...',
+    'Purchases/Receive Inventory...',
+    'Bills',
+    'Select for Payment',
+    'Payments...',
+    'Write Checks...',
+    'Transmit Electronic Payments...',
+    'Vendor Credit Memos...',
+    'Account Register...',
+    'Time/Expense',
+    'Select for Payroll Entry...',
+    'Payroll Entry...',
+    'General Journal Entry...',
+    'Inventory Adjustments...',
+    'Assemblies...',
+    'Account Reconciliation...',
+    'Void Checks...',
+    'Write Letters',
+    'Action Items...',
+    'System'
   ];
 
   // Close dropdown when clicking outside
@@ -65,7 +97,16 @@ const NavBar = () => {
       position: 'relative',
       zIndex: 1000
     }}>
-     
+      <span style={{
+        color: '#7aa9ff',
+        fontWeight: '600',
+        fontSize: '0.8rem',
+        marginRight: '24px',
+        letterSpacing: '0.5px'
+      }}>
+        SAGE 50
+      </span>
+
       {navItems.map((item, index) => (
         <div
           key={index}
@@ -73,11 +114,10 @@ const NavBar = () => {
             position: 'relative',
             display: 'inline-block'
           }}
-          ref={item === 'Maintain' ? menuRef : null}
+          ref={item === 'Maintain' || item === 'Tasks' ? menuRef : null}
         >
           <div
             style={{
-             // color: '#b0c8e0',
               fontSize: '0.75rem',
               fontWeight: '500',
               padding: '4px 12px',
@@ -102,7 +142,7 @@ const NavBar = () => {
               }
             }}
             onClick={() => {
-              if (item === 'Maintain') {
+              if (item === 'Maintain' || item === 'Tasks') {
                 toggleMenu(item);
               }
             }}
@@ -183,9 +223,94 @@ const NavBar = () => {
               ))}
             </div>
           )}
+
+          {/* Dropdown Menu for Tasks */}
+          {item === 'Tasks' && openMenu === 'Tasks' && (
+            <div
+              style={{
+                position: 'absolute',
+                top: '100%',
+                left: '0',
+                marginTop: '2px',
+                background: '#1e2a3a',
+                minWidth: '260px',
+                borderRadius: '6px',
+                padding: '6px 0',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
+                border: '1px solid #2c3d52',
+                zIndex: 2000
+              }}
+            >
+              {tasksItems.map((menuItem, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    padding: '6px 18px',
+                    color: '#c8d8e8',
+                    fontSize: '0.75rem',
+                    cursor: 'pointer',
+                    transition: 'all 0.1s',
+                    fontWeight: '400',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#2c3d52';
+                    e.currentTarget.style.color = 'white';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'transparent';
+                    e.currentTarget.style.color = '#c8d8e8';
+                  }}
+                  onClick={() => handleMenuItemClick(menuItem)}
+                >
+                  <span>{menuItem}</span>
+                  {menuItem.includes('...') && (
+                    <span style={{
+                      fontSize: '0.6rem',
+                      color: '#6f85a0',
+                      marginLeft: '12px'
+                    }}>
+                      ›
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       ))}
 
+      <div style={{ marginLeft: 'auto', display: 'flex', gap: '6px' }}>
+        <span style={{
+          color: '#8a9bb5',
+          fontSize: '0.7rem',
+          padding: '2px 10px',
+          borderRadius: '3px',
+          cursor: 'default'
+        }}>
+          —
+        </span>
+        <span style={{
+          color: '#8a9bb5',
+          fontSize: '0.7rem',
+          padding: '2px 10px',
+          borderRadius: '3px',
+          cursor: 'default'
+        }}>
+          □
+        </span>
+        <span style={{
+          color: '#8a9bb5',
+          fontSize: '0.7rem',
+          padding: '2px 10px',
+          borderRadius: '3px',
+          cursor: 'default'
+        }}>
+          ✕
+        </span>
+      </div>
     </div>
   );
 };

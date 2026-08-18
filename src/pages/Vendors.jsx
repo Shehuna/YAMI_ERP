@@ -27,6 +27,7 @@ const Vendors = () => {
   // Card width - consistent for all cards
   const CARD_WIDTH = '110px';
   const CARD_HEIGHT = '70px';
+  const CARD_GAP = '12px'; // Space between cards in a row
 
   // Card data with labels only (no values)
   const row1Cards = [
@@ -92,7 +93,7 @@ const Vendors = () => {
           <Icon size={12} />
         </div>
         <div style={{
-          fontSize: '0.62rem',
+          fontSize: '0.7rem',
           fontWeight: '500',
           color: '#1a2636',
           textAlign: 'center',
@@ -129,13 +130,13 @@ const Vendors = () => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '6px'
+          gap: '14px'
         }}>
           {/* Row 1: Vendors, Write Checks, 1099s */}
           <div style={{
             display: 'flex',
             justifyContent: 'flex-start',
-            gap: '6px',
+            gap: CARD_GAP,
             width: '100%',
             maxWidth: '360px'
           }}>
@@ -150,37 +151,71 @@ const Vendors = () => {
           <div style={{
             display: 'flex',
             justifyContent: 'flex-start',
-            gap: '6px',
+            gap: CARD_GAP,
             width: '100%',
-            maxWidth: '360px'
+            maxWidth: '360px',
+            position: 'relative'
           }}>
             {row2Cards.map((card, index) => (
               <React.Fragment key={index}>
                 {renderCard(card)}
               </React.Fragment>
             ))}
+            {/* Vertical line from Purchase Orders to Enter Bills */}
+            <div style={{
+              position: 'absolute',
+              left: '55px',
+              bottom: '-14px',
+              width: '2px',
+              height: '14px',
+              background: '#d0d8e4',
+              zIndex: 1
+            }} />
           </div>
 
           {/* Row 3: Enter Bills, Pay Bills, Electronic Bill Pay */}
           <div style={{
             display: 'flex',
             justifyContent: 'flex-start',
-            gap: '6px',
+            gap: CARD_GAP,
             width: '100%',
-            maxWidth: '360px'
+            maxWidth: '360px',
+            position: 'relative'
           }}>
             {row3Cards.map((card, index) => (
               <React.Fragment key={index}>
                 {renderCard(card)}
               </React.Fragment>
             ))}
+            {/* Horizontal line from Enter Bills to Pay Bills */}
+            <div style={{
+              position: 'absolute',
+              left: '110px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: '12px',
+              height: '2px',
+              background: '#d0d8e4',
+              zIndex: 1
+            }} />
+            {/* Horizontal line from Pay Bills to Electronic Bill Pay */}
+            <div style={{
+              position: 'absolute',
+              left: '232px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              width: '12px',
+              height: '2px',
+              background: '#d0d8e4',
+              zIndex: 1
+            }} />
           </div>
 
           {/* Row 4: Void Checks, Credits and Returns, Reports */}
           <div style={{
             display: 'flex',
             justifyContent: 'flex-start',
-            gap: '6px',
+            gap: CARD_GAP,
             width: '100%',
             maxWidth: '360px'
           }}>
